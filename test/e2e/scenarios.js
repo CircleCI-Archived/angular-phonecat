@@ -16,6 +16,8 @@ describe('PhoneCat App', function() {
 
     beforeEach(function() {
       browser.get('app/index.html#/phones');
+      // Disable animations
+      element(by.tagName("body")).allowAnimations(false);
     });
 
 
@@ -77,6 +79,8 @@ describe('PhoneCat App', function() {
 
     beforeEach(function() {
       browser.get('app/index.html#/phones/nexus-s');
+      // Disable animations
+      element(by.tagName("body")).allowAnimations(false);
     });
 
 

@@ -1,6 +1,6 @@
 angular-phonecat
 ================
-![CircleCI Status](https://circleci.com/gh/circleci/angular-phonecat.png?circle-token=af73ee43f7a7edf456eba4fd6352124c9ab6fdea)
+[![Circle CI](https://circleci.com/gh/circleci/angular-phonecat.png?style=badge)](https://circleci.com/gh/circleci/angular-phonecat)
 
 This project demonstrates how to run all the tests for the standard AngularJS “Phone Catalog” tutorial on CircleCI.
 

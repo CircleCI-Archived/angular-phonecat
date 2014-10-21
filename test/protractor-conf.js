@@ -1,3 +1,5 @@
+var ScreenShotReporter = require('protractor-screenshot-reporter');
+
 exports.config = {
   allScriptsTimeout: 11000,
 
@@ -17,5 +19,12 @@ exports.config = {
 
   jasmineNodeOpts: {
     defaultTimeoutInterval: 30000
+  },
+
+  onPrepare: function () {
+    // Add a screenshot reporter and store screenshots to `$CIRCLE_ARTIFACTS`.
+    jasmine.getEnv().addReporter(new ScreenShotReporter({
+      baseDirectory: process.env.CIRCLE_ARTIFACTS
+    }));
   }
 };

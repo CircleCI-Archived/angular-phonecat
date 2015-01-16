@@ -2,6 +2,16 @@ machine:
   node:
     version:
       0.10.28
+
+dependencies:
+  pre:
+    - sudo apt-get update && sudo apt-get install -y xserver-xorg-video-dummy
+    - sudo killall Xvfb
+    - wget http://xpra.org/xorg.conf
+    - Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./10.log -config ./xorg.conf :99.0:
+        background: true
+    - sleep 2
+
 test:
   pre:
     - npm start:

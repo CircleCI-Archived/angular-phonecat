@@ -5,13 +5,17 @@ machine:
 
 dependencies:
   pre:
+    # install the dummy driver + configuration
     - sudo apt-get update && sudo apt-get install -y xserver-xorg-video-dummy
-    - sudo killall Xvfb
     - wget http://xpra.org/xorg.conf
-    - Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./10.log -config ./xorg.conf :99.0:
+    # kill the old server
+    - sudo killall Xvfb
+    # start a new one.
+    - Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./10.log -config ./xorg.conf $DISPLAY.0:
         background: true
+    # wait a bit for it to start.
     - sleep 2
-    - xrandr
+    # set the resolution to something sane.
     - xrandr --output default --mode 1280x1024
 
 test:

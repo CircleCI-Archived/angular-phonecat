@@ -11,6 +11,8 @@ dependencies:
     - Xorg -noreset +extension GLX +extension RANDR +extension RENDER -logfile ./10.log -config ./xorg.conf :99.0:
         background: true
     - sleep 2
+    - xrandr
+    - xrandr --output default --mode 1280x1024
 
 test:
   pre:
